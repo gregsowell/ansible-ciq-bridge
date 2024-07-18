@@ -1,8 +1,8 @@
 #!/bin/sh
 
-ORG_STRING="[ORG STRING]"
-ORG_TOKEN="[ORG TOKEN]"
-REPODIR="/path/to/local/webroot/to/host/BRIDGE"
+ORG_STRING="{{ ciq_depot_user }}"
+ORG_TOKEN="{{ ciq_depot_token }}"
+REPODIR="{{ web_path }}"
 
 if [ -n "$ORG_TOKEN" ]; then
  RSYNC_PASSWORD="$ORG_TOKEN"
