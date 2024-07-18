@@ -1,0 +1,21 @@
+#!/bin/sh
+
+ORG_STRING="[ORG STRING]"
+ORG_TOKEN="[ORG TOKEN]"
+REPODIR="/path/to/local/webroot/to/host/BRIDGE"
+
+if [ -n "$ORG_TOKEN" ]; then
+ RSYNC_PASSWORD="$ORG_TOKEN"
+fi
+
+mkdir -p "$REPODIR/ciq-bridge"
+
+rsync -av "rsync://$ORG_STRING@rsync.depot.ciq.com/bridge:ciq-bridge.x86_64/" "$REPODIR/ciq-bridge/"
+
+mkdir -p "$REPODIR/centos-7"
+
+rsync -av "rsync://$ORG_STRING@rsync.depot.ciq.com/bridge:centos-7.x86_64/" "$REPODIR/centos-7/"
+
+mkdir -p "$REPODIR/centos-7-updates"
+
+rsync -av "rsync://$ORG_STRING@rsync.depot.ciq.com/bridge:centos-7-updates.x86_64/" "$REPODIR/centos-7-updates/"
